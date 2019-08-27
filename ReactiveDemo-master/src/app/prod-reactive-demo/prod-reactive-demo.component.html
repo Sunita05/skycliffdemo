@@ -1,0 +1,85 @@
+<div class="container">
+<!--
+  <h1>Reactive Product Form</h1>
+  <form [formGroup]="proapp" (ngSubmit)="onProductSave()">
+    <div class="form-group">
+      <label>Product Id</label>
+      <input formControlName="pro_id" type="text" class="form-control" placeholder="enter Id">
+      <label class="alert alert-danger" *ngIf="proapp.get('pro_id').hasError('required') && !signup.get('user_email').pristine" >Email is required.</label>
+      <label class="alert alert-danger"  *ngIf="proapp.get('pro_id').hasError('email')">Email is invalid.</label> -->
+
+      <!-- <label style="color:blue" *ngIf="signup.get('user_email').status=='PENDING'">Checking...</label>
+      <label style="color:green" *ngIf="signup.get('user_email').status=='VALID'">Email is Available</label>
+      <label style="color:red" *ngIf="signup.get('user_email').hasError('emailInUse')">Email is already Taken</label> -->
+
+    <!-- </div>
+    <div class="form-group">
+      <label>Product Name</label>
+      <input formControlName="pro_name" type="text" class="form-control" placeholder="Enter Name ">
+      <label class="alert alert-danger"  *ngIf="proapp.get('pro_name').hasError('required') && !proapp.get('pro_name').pristine " >name is required</label>
+    </div>
+    <div class="form-group">
+      <label>Product Price</label>
+      <input formControlName="pro_price" type="text" class="form-control" placeholder="Enter Price ">
+    </div>
+
+    <div class="form-group">
+      <label>Product Desc</label>
+      <input formControlName="pro_desc" type="text" class="form-control" placeholder="Enter Desc">
+    </div>
+
+    <div class="form-group">
+      <label>Product Quantity</label>
+      <input formControlName="pro_qty" type="text" class="form-control" placeholder="Enter qty">
+    </div>
+
+
+
+    <div class="form-group">
+      <label>Product Mfg</label>
+      <input formControlName="pro_mfg" type="text" class="form-control" placeholder="Enter mfg">
+    </div>
+
+    <div class="form-group">
+      <label>Product Image</label>
+      <input formControlName="pro_img" type="text" class="form-control" placeholder="Enter Image src">
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="form-control btn btn-primary">Save User</button>
+    </div>
+  </form>
+</div> -->
+
+<div class="container">
+  <div class="col-md-3">
+    <h1>Search</h1><input placeholder="Search Here" name="n1" #f type="text" (keyup)="search(f.value)">
+
+  </div>
+
+  <div class="col-md-9">
+      <div class="col-md-9">
+
+    <div class="row">
+        <h1>Products</h1>
+      <div class="col-sm-6 col-md-4" *ngFor="let item of arr">
+        <div class="thumbnail">
+          <img [src]="item.pro_img" height="200px" width="200px" alt="...">
+          <div class="caption">
+            <h3>{{item.pro_name}}</h3>
+            <p>{{item.pro_desc}}</p>
+            <p>{{item.pro_qty}}</p>
+            <p>{{item.pro_mfg}}</p>
+            <p>{{item.pro_price | currency:'INR' }}</p>
+            <p>
+              <a (click)="onProductDelete(item)" class="btn btn-primary" role="button">Delete</a>
+              <a (click)="onProductEdit(item)" class="btn btn-primary" role="button">Edit</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
